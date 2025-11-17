@@ -1,0 +1,33 @@
+@model MyShop.Core.DTOs.ProductDto
+
+@{
+    ViewData["Title"] = "Xác nhận Xóa";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<h3>Bạn có chắc chắn muốn xóa sản phẩm này?</h3>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Tên sản phẩm
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class="col-sm-2">
+            Giá
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+    </dl>
+
+    <form asp-action="Delete" method="post">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Xác nhận Xóa" class="btn btn-danger" />
+        <a asp-action="Index" class="btn btn-secondary">Hủy</a>
+    </form>
+</div>
