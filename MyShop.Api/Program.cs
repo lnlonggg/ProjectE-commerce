@@ -88,7 +88,7 @@ using (var scope = app.Services.CreateScope())
     var config = app.Configuration;
     try
     {
-        DataSeeder.SeedAdmin(services, config);
+        DataSeeder.SeedAll(services, config);
     }
     catch (Exception ex)
     {

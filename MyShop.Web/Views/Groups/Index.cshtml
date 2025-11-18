@@ -1,0 +1,39 @@
+@model IEnumerable<MyShop.Core.DTOs.GroupDto>
+
+@{
+    ViewData["Title"] = "Quản lý Nhóm sản phẩm";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-success">Thêm mới Nhóm</a>
+</p>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Tên Nhóm</th>
+            <th>Mô tả</th>
+            <th>Mã Danh mục (Category ID)</th>
+            <th style="width: 150px;">Thao tác</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Name)</td>
+                <td>@Html.DisplayFor(modelItem => item.Description)</td>
+                <td>@Html.DisplayFor(modelItem => item.CategoryId)</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-outline-primary" title="Sửa">
+                        <i class="bi bi-pencil-fill"></i>
+                    </a>
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-outline-danger" title="Xóa">
+                        <i class="bi bi-trash-fill"></i>
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

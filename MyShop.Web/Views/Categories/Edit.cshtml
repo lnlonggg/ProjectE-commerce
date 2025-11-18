@@ -1,0 +1,40 @@
+@model MyShop.Core.DTOs.CategoryCreateDto
+
+@{
+    ViewData["Title"] = "Sửa Danh mục";
+}
+
+<h1>@ViewData["Title"]</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="mb-3">
+                <label asp-for="Name" class="form-label">Tên danh mục</label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="ParentId" class="form-label">Danh mục Cha</label>
+                <select asp-for="ParentId" class="form-control" asp-items="ViewBag.CategoryList">
+                    <option value="">-- Không có (Là danh mục gốc) --</option>
+                </select>
+                <span asp-validation-for="ParentId" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="OrderIndex" class="form-label">Thứ tự hiển thị</label>
+                <input asp-for="OrderIndex" class="form-control" />
+                <span asp-validation-for="OrderIndex" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <input type="submit" value="Lưu thay đổi" class="btn btn-primary" />
+                <a asp-action="Index" class="btn btn-secondary">Quay lại</a>
+            </div>
+        </form>
+    </div>
+</div>
